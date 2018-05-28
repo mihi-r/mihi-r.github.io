@@ -10,7 +10,10 @@ html, body
 // Navigation bar
 // Inspiration from https://codepen.io/EvyatarDa/pen/waKXMd
 
-nav {
+.homepage nav {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
     z-index: 2;
     font-family: $font-family;
     margin: 0 auto;
@@ -20,7 +23,6 @@ nav {
 }
 
 nav a {
-    position: sticky;
     color: white;
     text-decoration: none;
     font-size: 20px;
@@ -86,6 +88,10 @@ nav .logo img {
     background-size: cover;
 }
 
+.homepage .intro {
+    opacity: 1;
+}
+
 .homepage .intro h2 {
     font-family: $font-family;
     font-size: 8em;
@@ -101,4 +107,8 @@ nav .logo img {
     font-size: 2em;
     text-align: center;
     color: white;
+}
+
+.botpage {
+    margin: 300px;
 }
