@@ -11,15 +11,17 @@ html, body
 // Inspiration from https://codepen.io/EvyatarDa/pen/waKXMd
 
 nav {
+    z-index: 2;
     font-family: $font-family;
     margin: 0 auto;
 	padding: 4em 5em;
     text-align: right;
-    background: $primary-color;
+    background-color: rgba(255, 255, 255, 0)
 }
 
 nav a {
-    color: black;
+    position: sticky;
+    color: white;
     text-decoration: none;
     font-size: 20px;
     margin: 0px 10px;
@@ -36,7 +38,7 @@ nav a:before, nav a:after
     width: 0%;
     height: 2px;
     content: '';
-    background: black;
+    background: white;
     transition: all 0.3s;
 }
 
@@ -62,12 +64,41 @@ nav .logo h1 {
     float: left;
     margin: 0;
     font-size: 30px;
-    color: black; 
+    color: white; 
 }
 
 nav .logo img {
     float: left;
     margin: 0;
-    padding-right: 10px; 
+    margin-top: -8px; 
+    margin-right: 20px;
+    padding: 10px;
     width: 50px;
+    background-color: white;
+}
+.homepage {
+    z-index: 1;
+    top: 0;
+    background:linear-gradient(0deg,rgba(29, 29, 29, 0.212),rgba(29, 29, 29, 0.212)), url("../images/shoes.jpg");
+    height: 800px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.homepage .intro h2 {
+    font-family: $font-family;
+    font-size: 8em;
+    text-align: center;
+    color: white;
+    margin-bottom: 0px;
+    padding-bottom: 0px; 
+}
+
+.homepage .intro p {
+    margin-top: 5px;
+    font-family: $font-family;
+    font-size: 2em;
+    text-align: center;
+    color: white;
 }
