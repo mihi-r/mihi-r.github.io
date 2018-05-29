@@ -21,7 +21,6 @@ nav {
 }
 
 nav a {
-    color: white;
     text-decoration: none;
     font-size: 20px;
     margin: 0px 10px;
@@ -64,7 +63,10 @@ nav .logo h1 {
     float: left;
     margin: 0;
     font-size: 30px;
-    color: white; 
+}
+
+.light {
+    color: white;
 }
 
 nav .logo img {
