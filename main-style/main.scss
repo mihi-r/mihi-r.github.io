@@ -30,24 +30,24 @@ nav a {
     cursor: pointer;
 }
 
-nav a:before, nav a:after
+nav a .linkAnimationB, nav a .linkAnimationA
 {
     position: absolute;
     opacity: 0;
     width: 0%;
     height: 2px;
     content: '';
-    background: white;
     transition: all 0.3s;
+    background: white;
 }
 
-nav a:before
+nav a .linkAnimationB
 {
     left: 0px;
     top: 0px;
 }
 
-nav a:after
+nav a .linkAnimationA
 {
     right: 0px;
     bottom: 0px;
@@ -68,6 +68,7 @@ nav .logo h1 {
 .light {
     color: white;
 }
+
 
 nav .logo img {
     float: left;
@@ -113,7 +114,7 @@ nav .logo img {
 
 .menubar {
     margin-top: 0px;
-    padding: 60px;
+    padding: 50px;
     background-color: white;
     position: sticky;
     position: -webkit-sticky;
