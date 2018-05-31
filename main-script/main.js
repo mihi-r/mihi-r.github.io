@@ -1,5 +1,5 @@
 /*
-jQuery alternative for cross browser support
+jQuery alternative
 
 $(window).scroll(function(){
     $(".intro").css("opacity", 1 - $(window).scrollTop() / 250);
@@ -19,12 +19,31 @@ window.addEventListener('scroll', function(ev) {
     var someDiv = document.querySelector('.menubar');
     var distanceToTop = someDiv.getBoundingClientRect().top;
 
+    var navAnimationB = document.querySelectorAll("nav a .linkAnimationB");
+    var navAnimationA = document.querySelectorAll("nav a .linkAnimationA");
+    var menubar = document.querySelector(".menubar");
+
+    if (distanceToTop < 5) {
+        menubar.style.boxShadow = "0 4px 8px 0 rgba(0, 0, 0, 0.2)";
+    }
+    else {
+        menubar.style.boxShadow = "0 0px 0px 0 rgba(0, 0, 0, 0.2)";
+    }
+
     if (distanceToTop < 5) {
         fixed.removeClass('light')
+        for (var i = 0; i < navAnimationB.length; i++) {
+            navAnimationB[i].style.background = "black";
+            navAnimationA[i].style.background = "black";
+        }
     }
     else {
         fixed.addClass('light')
         document.querySelector('.light').style.transition = "color 1s";
+        for (var i = 0; i < navAnimationB.length; i++) {
+            navAnimationB[i].style.background = "white";
+            navAnimationA[i].style.background = "white";
+        }
     }
  });
 
