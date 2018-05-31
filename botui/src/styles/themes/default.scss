@@ -65,6 +65,7 @@ $primary-color: #919292;
   background-color: transparent;
   color: darken($primary-color, 22%);
   border-bottom: 1px solid $primary-color;
+  width: 70%;
 }
 
 .botui-actions-text-submit {
