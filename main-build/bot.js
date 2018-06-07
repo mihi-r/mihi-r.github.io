@@ -9,7 +9,6 @@ botui.message.bot({
         }
     });
 })
-
 //Resume data
 var resumedata = [{
     "name": "Mihir Patel",
