@@ -1,0 +1,31 @@
+{
+  "name": "mihirstudio",
+  "description": "Main page for content produced by Mihir Patel and Mihir Studio.",
+  "homepage": "https://botui.org",
+  "author": {
+    "name": "Mihir Patel",
+    "url": "http://mihirstudio.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mihi-r/mihi-r.github.io"
+  },
+  "dependencies": {
+    "npm": "^6.1.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.9.4",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^1.2.3",
+    "gulp-sass": "^4.0.1",
+    "gulp-uglify": "^3.0.0"
+  },
+  "scripts": {
+    "build": "gulp",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "gulp watch"
+  },
+  "license": "MIT",
+  "types": "typings/index.d.ts"
+}

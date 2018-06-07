@@ -1,16 +1,4 @@
-var botui = new BotUI('mihirBot');
-
-botui.message.bot({
-    content: "Hello! Want to know anything specfic about Mihir? Ask away!"
-}).then(function() {
-    botui.action.text({
-        action: {
-            placeholder: "eg. What are his experiences?"
-        }
-    });
-})
-//Resume data
-var resumedata = [{
+resumeData = [{
     "name": "Mihir Patel",
     "contact": {
         "phone": "513-720-9908",
@@ -85,4 +73,4 @@ var resumedata = [{
             ]
         }
     ]
-}]
+}];
