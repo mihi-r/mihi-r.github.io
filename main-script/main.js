@@ -1,22 +1,12 @@
-/*
-jQuery alternative
-
-$(window).scroll(function(){
-    $(".intro").css("opacity", 1 - $(window).scrollTop() / 250);
-    console.log("I scroll jQuery")
-});
-*/
-
 window.onscroll = function() {
     document.querySelector(".intro").style.opacity = 1 - window.scrollY / 250;
 }
 
-var fixed = $("nav");
-fixed.addClass('light');
+var fixedNav = document.querySelector("nav");
+fixedNav.classList.add("light");
 
-
-window.addEventListener('scroll', function(ev) {
-    var someDiv = document.querySelector('.menubar');
+window.addEventListener("scroll", function(ev) {
+    var someDiv = document.querySelector(".menubar");
     var distanceToTop = someDiv.getBoundingClientRect().top;
 
     var navAnimationB = document.querySelectorAll("nav a .linkAnimationB");
@@ -31,23 +21,21 @@ window.addEventListener('scroll', function(ev) {
     }
 
     if (distanceToTop < 5) {
-        fixed.removeClass('light')
+        fixedNav.classList.remove("light");
         for (var i = 0; i < navAnimationB.length; i++) {
             navAnimationB[i].style.background = "black";
             navAnimationA[i].style.background = "black";
         }
     }
     else {
-        fixed.addClass('light')
-        document.querySelector('.light').style.transition = "color 1s";
+        fixedNav.classList.add("light");
+        document.querySelector(".light").style.transition = "color 1s";
         for (var i = 0; i < navAnimationB.length; i++) {
             navAnimationB[i].style.background = "white";
             navAnimationA[i].style.background = "white";
         }
     }
  });
-
-
 
 var allNavLink = document.querySelectorAll("nav a");
 var allNavAnimationB = document.querySelectorAll(".linkAnimationB")
