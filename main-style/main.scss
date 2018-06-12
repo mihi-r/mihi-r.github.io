@@ -125,9 +125,48 @@ nav .logo img {
     position: -webkit-sticky;
     top: 0;
     transition: box-shadow 0.5s;
+    z-index: 1;
 }
 
 .search-page {
     padding-bottom: 800px;
     background-color: white;
+}
+
+.search-page form {
+    text-align: center;
+}
+
+.search-page .searchBox {
+    width: 50%;
+    height: 120px;
+    font-size: 100px;
+    font-family: $font-family;
+    margin-top: 100px;
+    margin-bottom: 15px;
+    border: none;
+    border-bottom: 2px solid $primary-color;
+    transition: border-bottom .2s ease-in-out;
+}
+
+.search-page .searchBox::placeholder {
+    color: rgb(220, 220, 220);
+    font-family: $font-family;
+}
+
+.search-page .searchBox:focus {
+    border-bottom: 4px solid $primary-color
+}
+
+.search-page .searchResults {
+    font-family: $font-family;
+    margin-left: 25%;
+}
+
+.search-page .searchResults ul {
+    margin-bottom: 15px;
+}
+
+.search-page .searchResults .fa-li {
+    color: $primary-color;
 }

@@ -49,12 +49,11 @@ resumeData = [{
             "Gulp"
         ]
     },
-    "experiences": [
-        {
-            "name": "Siemens PLM Software",
+    "experiences": {
+        "Siemens PLM Software": {
             "title": "Stragetic Co-op",
             "location": "Milford, Ohio",
-            "details": [
+            "description": [
                 "Utilize TensorFlow to forge a CNN model to classify textual data",
                 "Develop a web support page extending Elasticsearch to query data",
                 "Use the AWS SageMaker C++ API to automate machine learning training",
@@ -62,15 +61,14 @@ resumeData = [{
                 "Create Python scripts to parse CSVs to index data into Elasticsearch"
             ]
         },
-        {
-            "name": "University of Cincinnati",
+        "University of Cincinnati": {
             "title": "FYE Peer Leader",
             "location": "Cincinnati, Ohio",
-            "details": [
+            "description": [
                 "Educated 20 students in topics across differing educational genres",
                 "Created weekly lesson plans to accommodate university standards",
                 "Aided students by providing interactive presentations and activities"
             ]
         }
-    ]
+    }
 }];

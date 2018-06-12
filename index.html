@@ -6,9 +6,8 @@
     <meta name="description" content="Main page for content produced by Mihir Patel and Mihir Studio.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- BotUI Stylesheets -->
-    <link rel="stylesheet" href="./botui/build/botui.min.css" />
-    <link rel="stylesheet" href="./botui/build/botui-theme-default.css" />
+    <!-- Font Awesome Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
     <!-- Main Stylesheet -->
     <link rel="stylesheet" type="text/css" href="./main-build/main.min.css">
@@ -30,7 +29,7 @@
         </a>
         <a>
             <div class="linkAnimationB"></div>
-            BOT
+            SEARCH
             <div class="linkAnimationA"></div>
         </a>
         <a>
@@ -55,12 +54,17 @@
     <div class="menubar">
     </div>
     <div class="search-page">
+        <form>
+            <input type="text" placeholder="search" name="search" class="searchBox">
+        </form>
+        <div class="searchResults">
+            <ul class="fa-ul">
+            </ul>
+        </div>
     </div>
-
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <!-- Main Script -->
     <script src="./main-build/main.min.js"></script>
+    <script src="./main-build/search-bot.min.js"></script>
 </body>
 </html>
