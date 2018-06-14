@@ -1,17 +1,39 @@
-var searchBox = document.querySelector(".searchBox");
-var searchList = document.querySelector(".searchResults ul");
+var searchBox = document.querySelector(".search-page .searchBox");
+var searchList = document.querySelector(".search-page .searchResults ul");
+var searchForm = document.querySelector(".search-page form");
 
-searchBox.onkeyup = function () {
-    searchInput(searchBox.value);
+searchForm.onsubmit = function(event) {
+    event.preventDefault();
 }
 
-var searchInput = function(searchText) {
+searchBox.onkeyup = function (event) {
+    if (searchBox.value != "") {
+        searchInput(searchBox.value, event);
+    }
+}
+
+var searchInput = function(searchText, event) {
+    cursorPosition = searchBox.selectionStart;
     searchList.innerHTML = "";
     if (resumeData[0][searchText]) {
         findData(resumeData[0][searchText], searchList);
     }
     else {
         for (key in resumeData[0]) {
+            if (event.key != "Backspace") {
+                if (key.startsWith(searchText)) {
+                    searchBox.value = key;
+                }
+                for (keyDeep in resumeData[0][key]) {
+                    if (((typeof(resumeData[0][key]) === "object" ||
+                        typeof(resumeData[0][key]) === "array")) && 
+                        keyDeep.startsWith(searchText)) {
+                        searchBox.value = keyDeep;
+                    }
+                }
+                searchBox.setSelectionRange(cursorPosition, searchBox.value.length);
+            }
+
             if (resumeData[0][key][searchText]) {
                 findData(resumeData[0][key][searchText], searchList);
             }

@@ -2,9 +2,20 @@
 $font-family: 'Quicksand', sans-serif;
 $primary-color: #ffab91;
 
-html, body
-{
-    margin: 0px;
+html {
+    height:100% !important;
+    margin:0px;
+    padding:0px;
+}
+
+body {
+    height:200% !important;
+    margin:0px;
+    padding:0px;
+}
+
+.page {
+    height:50% !important; 
 }
 
 // Navigation bar
@@ -129,7 +140,6 @@ nav .logo img {
 }
 
 .search-page {
-    padding-bottom: 800px;
     background-color: white;
 }
 
@@ -158,6 +168,15 @@ nav .logo img {
     border-bottom: 4px solid $primary-color
 }
 
+.search-page .searchBox::selection {
+    color: #D9795B;
+}
+
+.search-page .searchBox::-moz-selection {
+    color: #D9795B;
+}
+
+
 .search-page .searchResults {
     font-family: $font-family;
     margin-left: 25%;
@@ -169,4 +188,13 @@ nav .logo img {
 
 .search-page .searchResults .fa-li {
     color: $primary-color;
+}
+
+.search-page p {
+    margin: auto;
+    font-family: $font-family;
+    font-size: 0.9em;
+    width: 50%;
+    color: rgb(112, 112, 112);
+    
 }

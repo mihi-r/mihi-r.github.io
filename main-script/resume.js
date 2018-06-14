@@ -8,8 +8,7 @@ resumeData = [{
         "university" : {
             "name": "University of Cincinnati",
             "location": "Cincinnati, Ohio",
-            "graduation year": "2021",
-            "gpa": "3.5",
+            "graduation year": "Class of 2021",
             "major": "Bachelor of Science in Computer Science"
         },
         "high school": {
