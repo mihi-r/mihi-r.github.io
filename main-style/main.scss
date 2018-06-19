@@ -16,7 +16,10 @@ body {
 }
 
 .page {
-    min-height:33.33%; 
+    height:33.33%; 
+    margin: 0;
+    padding: 0;
+    position: relative;
 }
 
 // Navigation bar
@@ -142,6 +145,10 @@ nav .logo img {
     z-index: 1;
 }
 
+#search-page {
+    min-height: 33.33%;
+    height: auto;
+}
 .search-page {
     background-color: white;
 }
@@ -205,4 +212,18 @@ nav .logo img {
 
 #about-page {
     background: #36363c;
+}
+
+.homepage .scrollTag,
+#about-page .scrollTag {
+    color: white;
+}
+
+.scrollTag {
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    bottom: 30px;
+    font-size: 1em;
 }
