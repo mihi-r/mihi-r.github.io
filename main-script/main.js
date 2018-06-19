@@ -37,6 +37,31 @@ window.addEventListener("scroll", function(ev) {
     }
  });
 
+ 
+var allScrollTagP = document.querySelectorAll(".scrollTag p");
+var allScrollTagIcon = document.querySelectorAll(".scrollTag a");
+
+
+for (var i = 0; i < allScrollTagP.length; i++) {
+    (function (index) {
+        allScrollTagIcon[index].onmouseover = function () {
+            allScrollTagP[index].style.opacity = "1";
+        }
+        allScrollTagIcon[index].onmouseout = function () {
+            allScrollTagP[index].style.opacity = "0";
+        }
+    })(i);
+
+}
+
+/*
+allScrollTagIcon[0].onmouseover = function () {
+    allScrollTagP[0].style.opacity = "100%"
+    console.log(allScrollTagP[0].style);
+}
+
+*/
+
 var allNavLink = document.querySelectorAll("nav a");
 var allNavAnimationB = document.querySelectorAll(".linkAnimationB")
 var allNavAnimationA = document.querySelectorAll(".linkAnimationA")

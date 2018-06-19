@@ -215,8 +215,22 @@ nav .logo img {
 }
 
 .homepage .scrollTag,
-#about-page .scrollTag {
+#about-page .scrollTag,
+.homepage .fas,
+#about-page .fas {
     color: white;
+}
+
+.search-page .scrollTag p,
+.search-page .fas {
+    color: black;
+}
+
+.scrollTag p {
+    margin-bottom: 10px;
+    font-size: 0.8em;
+    opacity: 0;
+    transition: opacity 0.5s;
 }
 
 .scrollTag {
@@ -225,5 +239,5 @@ nav .logo img {
     width: 100%;
     text-align: center;
     bottom: 30px;
-    font-size: 1em;
+    font-family: $font-family;
 }
