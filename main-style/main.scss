@@ -100,6 +100,35 @@ nav .logo img {
     width: 50px;
     background-color: white;
 }
+
+.homepage .scrollTag,
+#about-page .scrollTag,
+.homepage .fas,
+#about-page .fas {
+    color: white;
+}
+
+.search-page .scrollTag p,
+.search-page .fas {
+    color: black;
+}
+
+.scrollTag p {
+    margin-bottom: 10px;
+    font-size: 0.8em;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.scrollTag {
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    bottom: 30px;
+    font-family: $font-family;
+}
+
 .homepage {
     z-index: 1;
     top: 0;
@@ -214,30 +243,14 @@ nav .logo img {
     background: #36363c;
 }
 
-.homepage .scrollTag,
-#about-page .scrollTag,
-.homepage .fas,
-#about-page .fas {
+#about-page .content {
+    max-width: 960px;
+    margin: 0 auto;
+    padding-top: 200px;
+    font-family: $font-family;
     color: white;
 }
 
-.search-page .scrollTag p,
-.search-page .fas {
-    color: black;
-}
-
-.scrollTag p {
-    margin-bottom: 10px;
-    font-size: 0.8em;
-    opacity: 0;
-    transition: opacity 0.5s;
-}
-
-.scrollTag {
-    position: absolute;
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-    bottom: 30px;
-    font-family: $font-family;
+#about-page content h2 {
+    width:10%;
 }
