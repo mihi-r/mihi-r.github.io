@@ -10,13 +10,13 @@ html {
 }
 
 body {
-    height:300%;
+    height: 400%; // Pages * 100
     margin:0px;
     padding:0px;
 }
 
 .page {
-    height:33.33%; 
+    height: 25%; // 100 / Pages
     margin: 0;
     padding: 0;
     position: relative;
@@ -252,5 +252,26 @@ nav .logo img {
 }
 
 #about-page content h2 {
-    width:10%;
+    width: 10%;
+}
+
+// Project 1: Word Search Mania
+#project-page1 .content {
+    max-width: 960px;
+    margin: 0 auto;
+    padding-top: 200px;
+    font-family: $font-family;
+}
+
+#project-page1 .content img {
+    width: 70%;
+}
+
+#project-page1 .description {
+    width: 30%;
+    float: right;
+}
+
+#project-page1 .tools-used {
+    color: #D9795B;
 }
