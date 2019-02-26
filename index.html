@@ -52,38 +52,77 @@
             </div>
             <div class=scrollTag>
                 <p>SCROLL</p>
-                <a href="#search-page"><i class="fas fa-chevron-down"></i></a>
+                <a href="#about-page"><i class="fas fa-chevron-down"></i></a>
             </div>
         </div>
     </div>
     <div class="menubar">
     </div>
-    <div class="page" id="search-page">
-        <div class="search-page">
-            <form>
-                <input type="text" placeholder="search" autocomplete="off" name="search" class="searchBox">
-            </form>
-            <p>You can use this to easily search things about me. For example, you can search "experiences" to see my work-related experiences. Start typing for more suggestions!</p>
-            <div class="searchResults">
-                <ul class="fa-ul">
-                </ul>
-            </div>
-            <div class=scrollTag>
-                <p>SCROLL</p>
-                <a href="#about-page"><i class="fas fa-chevron-down"></i></a>
-            </div>
-        </div>
-    </div>
     <div class="page" id="about-page">
         <div class="content">
-            <h2>ABOUT</h2>
-            <p>My name is Mihir Patel and I am a third-year student at the University of Cincinnati pursuing a Bachelors of Science in Computer Science. I aim to enhance my personal skills by getting involved in different environments whether that be joining an organization, gaining work experience, or working on a personal project in my free time.</p>
-            <p>During my co-op experience at Siemens PLM Software, I was able to get my hands on working with various tools such as Amazon Web Services and Docker. I was able to learn what it takes to put a machine learning architecture to production. As the Director of Technology for CEAS Tribunal, I'm able to apply my skills in web development to create a sign-in application used at the official university career fair. There, I also get a lead a committee to embark on a website redesign initiative for the organization. I get to bring my vision to life while talking about the things I love. With my experience working as a Peer Leader, it allowed me to broaden my potential by exposing me to new skills such as public speaking, building interactive presentations, and daily life management.</p>
-            <p>For fun, a favorite hobby of mine to create stop-motion animations. It is the art of taking multiple pictures and fusing them all in succession to create one fluid animation. Similar to software design, patience and persistence are required to create a successful product, however, the end goal is always worth it.</p>    
+            <div class="description">
+                <h2>ABOUT</h2>
+                <p>My name is Mihir Patel and I am a third-year student at the University of Cincinnati pursuing a Bachelors of Science in Computer Science. I aim to enhance my personal skills by getting involved in different environments whether that be joining an organization, gaining work experience, or working on a personal project in my free time.</p>
+                <p>During my co-op experience at Siemens PLM Software, I was able to get my hands on working with various tools such as Amazon Web Services and Docker. I was able to learn what it takes to put a machine learning architecture to production. As the Director of Technology for CEAS Tribunal, I'm able to apply my skills in web development to create a sign-in application used at the official university career fair. There, I also get a lead a committee to embark on a website redesign initiative for the organization. I get to bring my vision to life while talking about the things I love. With my experience working as a Peer Leader, it allowed me to broaden my potential by exposing me to new skills such as public speaking, building interactive presentations, and daily life management.</p>
+                <p>For fun, a favorite hobby of mine to create stop-motion animations. It is the art of taking multiple pictures and fusing them all in succession to create one fluid animation. Similar to software design, patience and persistence are required to create a successful product, however, the end goal is always worth it.</p>    
+            </div>
+            <img src="./images/mihir.jpg">
         </div>
         <div class=scrollTag>
             <p>SCROLL</p>
-            <a href="#project-page1"><i class="fas fa-chevron-down"></i></a>
+            <a href="#search-page"><i class="fas fa-chevron-down"></i></a>
+        </div>
+    </div>
+    <div class="page" id="search-page">
+        <div class="content">
+            <div class="search-page">
+                <form>
+                    <input type="text" placeholder="search" autocomplete="off" name="search" class="searchBox">
+                </form>
+                <p>You can use this to easily search things about me. For example, you can search "experiences" to see my work-related experiences. Start typing for more suggestions or you can read below!</p>
+                <div class="searchResults">
+                    <ul class="fa-ul">
+                    </ul>
+                </div>
+                <div class=scrollTag>
+                    <p>SCROLL</p>
+                    <a href="#project-page1"><i class="fas fa-chevron-down"></i></a>
+                </div>
+            </div>
+            <div class="resume">
+                <div class="skills">
+                    <h2>Skills</h2>
+                    <div class="skill-col" id="skill-programming">
+                        <p>Programming:</p>
+                    </div>
+                    <div class="skill-col" id="skill-tools">
+                        <p>Tools:</p>
+                    </div>
+                    <div class="skill-col" id="skill-frameworks">
+                        <p>Frameworks:</p>
+                    </div>
+                </div>
+                <div class="experience">
+                    <h2>Experience</h2>
+                    <div class="experience-nav-bar">
+                        <ul>
+                            <li class="active">Siemens PLM Software</li>
+                            <li>University of Cincinnati</li>
+                        </ul>
+                    </div>
+                    <p class="position">Software Development Co-op</p>
+                    <p class="dates">Jan 2018 - Present</p>
+                    <ul>
+                        <li>Utilize TensorFlow to forge a CNN model to classify data with over 90% accuracy</li>
+                        <li>Automate machine learning training by extending use of various C++ APIs</li>
+                        <li>Query textual data from Elasticsearch utilizing JavaScript APIs</li>
+                        <li>Embed AWS Lambda JavaScript calls in an Angular web framework</li>
+                        <li>Responsible for utilizing Python to parse CSVs to index data into Elasticsearch</li>
+                        <li>Create a Python Flask REST API to handle up to 500 requests in a Docker container</li>
+                    </ul>
+                </div>
+
+            </div>
         </div>
     </div>
     <div class="page" id="project-page1">

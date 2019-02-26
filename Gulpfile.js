@@ -20,14 +20,12 @@ gulp.task('main-styles', function() {
 });
 
 gulp.task('main-scripts', function () {
-  gulp.src('./main-script/main.js') 
-      .pipe(uglify())
-      .pipe(rename('main.min.js'))
+  gulp.src(['./main-script/resume.js', './main-script/main.js']) 
+      .pipe(concat('main.min.js'))
       .pipe(gulp.dest('./main-build/'));
 
   gulp.src(['./main-script/search-bot.js', './main-script/resume.js'])
       .pipe(concat('search-bot.min.js'))
-      .pipe(uglify())
       .pipe(gulp.dest('./main-build/'));
 });
 

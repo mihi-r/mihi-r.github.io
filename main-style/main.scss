@@ -16,7 +16,7 @@ body {
 }
 
 .page {
-    height: 20%; // 100 / Pages
+    min-height: 20%; // 100 / Pages
     margin: 0;
     padding: 0;
     position: relative;
@@ -102,16 +102,14 @@ nav .logo img {
 }
 
 .homepage .scrollTag,
-#about-page .scrollTag,
 #project-page2 .scrollTag,
 .homepage .fas,
-#about-page .fas,
+.search-page .fas,
 #project-page2 .fas {
     color: white;
 }
 
-.search-page .scrollTag p,
-.search-page .fas,
+#about-page .fas,
 #project-page1 .fas {
     color: black;
 }
@@ -136,7 +134,7 @@ nav .logo img {
     z-index: 1;
     top: 0;
     background:linear-gradient(0deg,rgba(29, 29, 29, 0.212),rgba(29, 29, 29, 0.212)), url("../images/shoes.jpg");
-    height: 800px;
+    min-height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -180,9 +178,7 @@ nav .logo img {
 #search-page {
     min-height: 33.33%;
     height: auto;
-}
-.search-page {
-    background-color: white;
+    background: #36363c;
 }
 
 .search-page form {
@@ -191,14 +187,16 @@ nav .logo img {
 
 .search-page .searchBox {
     width: 50%;
-    height: 120px;
-    font-size: 100px;
+    height: 80px;
+    font-size: 50px;
     font-family: $font-family;
     margin-top: 120px;
     margin-bottom: 15px;
     border: none;
     border-bottom: 2px solid $primary-color;
     transition: border-bottom .2s ease-in-out;
+    background: #36363c;
+    color: white;
 }
 
 .search-page .searchBox::placeholder {
@@ -224,6 +222,7 @@ nav .logo img {
     font-family: $font-family;
     margin-left: 25%;
     margin-bottom: 30px;
+    color: white;
 }
 
 .search-page .searchResults ul {
@@ -239,23 +238,118 @@ nav .logo img {
     font-family: $font-family;
     font-size: 0.9em;
     width: 50%;
-    color: rgb(112, 112, 112);
+    color: rgb(170, 170, 170);
 }
 
+#search-page .resume {
+    width: 960px;
+    margin: 0 auto;
+    color: white;
+    font-family: $font-family;
+}
+
+#search-page .resume h2 {
+    margin-top: 60px;
+    margin-bottom: 16px;
+    font-size: 60px;
+}
+
+#search-page .skills .skill-col {
+    float: left;
+    width: 31%;
+    padding-bottom: 60px;
+}
+
+#search-page .skills #skill-programming {
+    padding-bottom: 5px;
+}
+
+#search-page .skills .skill-col p {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+#search-page .skills .skill-col ul {
+    padding-left: 18px;
+}
+
+#search-page .resume .experience .experience-nav-bar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#search-page .resume .experience .experience-nav-bar li {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border: 1px solid gray; 
+    border-radius: 50px;
+    margin-right: 10px; 
+    transition: 0.3s;
+}
+
+#search-page .resume .experience .experience-nav-bar li:hover {
+    cursor: pointer;
+    border: 1px solid gray; 
+    background: gray; 
+}
+
+#search-page .resume .experience .experience-nav-bar .active {
+    border: 1px solid #D9795B;
+    background: #D9795B;
+}
+
+#search-page .resume .experience ul {
+    padding-left: 18px;
+}
+
+#search-page .resume .experience p {
+    line-height: 10px;
+    font-size: 20px;
+}
+
+#search-page .resume .experience .position {
+    color: rgb(214, 172, 160);
+}
+
+#search-page .resume .experience .dates {
+    color: rgb(216, 204, 200);
+    font-size: 14px;
+}
+
+
+
 #about-page {
-    background: #36363c;
+
 }
 
 #about-page .content {
     max-width: 960px;
     margin: 0 auto;
-    padding-top: 200px;
+    padding-top: 180px;
     font-family: $font-family;
-    color: white;
 }
 
-#about-page content h2 {
-    width: 10%;
+#about-page .content img {
+    width: 25%;
+    transition: .3s;
+    float: right;
+    border-radius: 8px;
+    margin-top: 80px;
+}
+
+#about-page .content .description {
+    width: 70%;
+    float: left;
+}
+
+#about-page .scrollTag {
+    position: static;
 }
 
 // Project 1: Word Search Mania
@@ -273,14 +367,14 @@ nav .logo img {
     transition: .3s;
 }
 
-#project-page1 .description,
-#project-page2 .description {
+#project-page1 .content .description,
+#project-page2 .content .description {
     width: 30%;
     float: right;
 }
 
-#project-page1 .tools-used,
-#project-page2 .tools-used {
+#project-page1 .content .tools-used,
+#project-page2 .content .tools-used {
     color: #D9795B;
 }
 

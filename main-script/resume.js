@@ -18,34 +18,33 @@ resumeData = [{
         }
     },
     "skills": {
-        "languages": [
+        "programming": [
             "C++",
             "JavaScript (ES6)",
             "Python",
-            "HTML5",
+            "HTML",
             "CSS",
             "Sass",
             "MATLAB",
-            "Kotlin",
             "PHP"
         ],
         "frameworks": [
             "TensorFlow",
             "Angular",
-            "Drupal"
-        ],
-        "libraries": [
-            "Scikit-learn",
-            "jQuery"
+            "Drupal",
+            "Bootstrap",
+            "Flask",
+            "PyQt",
+            "Agile (SCRUM)"
         ],
         "tools" : [
-            "AWS Lambda",
-            "AWS SageMaker",
-            "AWS S3",
+            "Amazon Web Services",
+            "Docker",
+            "Git",
             "Elasticsearch",
-            "Dialogflow",
-            "Adobe Photoshop",
-            "Gulp"
+            "Gulp",
+            "JQuery",
+            "Adobe Creative Suite"
         ]
     },
     "experiences": {
