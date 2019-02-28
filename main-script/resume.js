@@ -57,7 +57,9 @@ resumeData = [{
                 "Use the AWS SageMaker C++ API to automate machine learning training",
                 "Embed AWS Lambda calls in an Angular web framework",
                 "Create Python scripts to parse CSVs to index data into Elasticsearch"
-            ]
+            ],
+            "technical skill": "Learning to create a production level application from a proof of concept is a technical skill I acquired.",
+            "non-technical skill": "Presenting my ideas at meetings and in front of customers was a non-technical skill I acquired."
         },
         "University of Cincinnati": {
             "title": "FYE Peer Leader",

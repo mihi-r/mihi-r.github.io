@@ -1,6 +1,6 @@
 @import 'https://fonts.googleapis.com/css?family=Quicksand';
 $font-family: 'Quicksand', sans-serif;
-$primary-color: #ffab91;
+$primary-color: #dea6af;
 
 html {
     height:100%;
@@ -101,39 +101,10 @@ nav .logo img {
     background-color: white;
 }
 
-.homepage .scrollTag,
-#project-page2 .scrollTag,
-.homepage .fas,
-.search-page .fas,
-#project-page2 .fas {
-    color: white;
-}
-
-#about-page .fas,
-#project-page1 .fas {
-    color: black;
-}
-
-.scrollTag p {
-    margin-bottom: 10px;
-    font-size: 0.8em;
-    opacity: 0;
-    transition: opacity 0.5s;
-}
-
-.scrollTag {
-    position: absolute;
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-    bottom: 30px;
-    font-family: $font-family;
-}
-
 .homepage {
     z-index: 1;
     top: 0;
-    background:linear-gradient(0deg,rgba(29, 29, 29, 0.212),rgba(29, 29, 29, 0.212)), url("../images/shoes.jpg");
+    background: linear-gradient(to top, unquote('#aa4b6bad'), unquote('#6b6b83c5'), unquote('#3b8c99ab')), url("../images/shoes.jpg");
     min-height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
@@ -168,7 +139,7 @@ nav .logo img {
     padding: 50px;
     background-color: white;
     position: sticky;
-    box-shadow: "0 0px 0px 0 rgba(0, 0, 0, 0.2)";
+    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2);
     position: -webkit-sticky;
     top: 0;
     transition: box-shadow 0.5s;
@@ -206,15 +177,15 @@ nav .logo img {
 
 .search-page .searchBox:focus {
     outline: none;
-    border-bottom: 4px solid $primary-color
+    border-bottom: 4px solid $primary-color;
 }
 
 .search-page .searchBox::selection {
-    color: #D9795B;
+    color: #d8b7bc;
 }
 
 .search-page .searchBox::-moz-selection {
-    color: #D9795B;
+    color: #d8b7bc;
 }
 
 
@@ -256,7 +227,7 @@ nav .logo img {
 
 #search-page .skills .skill-col {
     float: left;
-    width: 31%;
+    width: 33%;
     padding-bottom: 60px;
 }
 
@@ -267,6 +238,7 @@ nav .logo img {
 #search-page .skills .skill-col p {
     margin-top: 0;
     margin-bottom: 10px;
+    color: #d8b7bc;
 }
 
 #search-page .skills .skill-col ul {
@@ -300,8 +272,8 @@ nav .logo img {
 }
 
 #search-page .resume .experience .experience-nav-bar .active {
-    border: 1px solid #D9795B;
-    background: #D9795B;
+    border: 1px solid #dea6af;
+    background: #dea6af;
 }
 
 #search-page .resume .experience ul {
@@ -314,7 +286,7 @@ nav .logo img {
 }
 
 #search-page .resume .experience .position {
-    color: rgb(214, 172, 160);
+    color: #d8b7bc;
 }
 
 #search-page .resume .experience .dates {
@@ -337,10 +309,15 @@ nav .logo img {
 
 #about-page .content img {
     width: 25%;
-    transition: .3s;
+    transition: 0.3s;
     float: right;
     border-radius: 8px;
     margin-top: 80px;
+    filter: drop-shadow(10px 0px 0px #dea6af);
+}
+
+#about-page .content img:hover {
+    filter: drop-shadow(10px 0px 0px unquote('#3b8c99ab'));
 }
 
 #about-page .content .description {
@@ -353,46 +330,87 @@ nav .logo img {
 }
 
 // Project 1: Word Search Mania
-#project-page1 .content,
-#project-page2 .content {
-    max-width: 960px;
-    margin: 0 auto;
-    padding-top: 200px;
-    font-family: $font-family;
+#project-page {
+    background: linear-gradient(to top, unquote('#d8b7bc2a'), unquote('#3b8c992c'));
+    overflow-x: hidden;
 }
 
-#project-page1 .content img,
-#project-page2 .content img {
-    width: 65%;
+#project-page .scrollTag {
+    position: static;
+}
+
+#project-page .description {
+    padding-top: 200px;
+    font-family: $font-family;
+    padding-right: 150px;
+    width: 30%;
+    float: right;
+    transform: translateX(100%);
+    transition: 0.5s;
+}
+
+#project-page .description h3  {
+    margin-bottom: 8px;
+}
+
+#project-page .description p:last-of-type {
+    margin-top: 8px;
+}
+
+#project-page img {
+    padding-top: 130px;
+    width: 50%;
+    filter: drop-shadow(10px 0px 0px #dea6af);
     transition: .3s;
 }
 
-#project-page1 .content .description,
-#project-page2 .content .description {
-    width: 30%;
-    float: right;
+#project-page img:hover {
+    filter: drop-shadow(10px 0px 0px unquote('#3b8c99ab'));
 }
 
-#project-page1 .content .tools-used,
-#project-page2 .content .tools-used {
-    color: #D9795B;
+#project-page .tools-used p {
+    display: inline;
+    background: #3b8c99ab;
+    padding: 3px 10px;
+    border-radius: 3px;
+    color: #cff0f5;
+    line-height: 2;
 }
 
-#project-page1 .content img:hover,
-#project-page2 .content img:hover {
-    width: 67%;
+#project-page .external-links {
+    font-size: 20px;
 }
 
-// Project 2: Tribunal Websitre
-
-#project-page2 {
-    background: #36363c;
-}
-
-#project-page2 .content {
+// Scroll Tags
+.homepage .scrollTag,
+.homepage .fas,
+.search-page .fas {
     color: white;
 }
 
-#project-page2 .content img {
-    border-radius: 10px;
+#about-page .fas,
+#project-page .fas {
+    color: black;
 }
+
+.scrollTag p {
+    margin-bottom: 10px;
+    font-size: 0.8em;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.homepage .scrollTag p,
+.search-page .scrollTag p {
+    color: white;
+}
+
+.scrollTag {
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    bottom: 30px;
+    font-family: $font-family;
+}
+

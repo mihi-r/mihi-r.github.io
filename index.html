@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Font Awesome Stylesheet -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
     <!-- Main Stylesheet -->
     <link rel="stylesheet" type="text/css" href="./main-build/main.min.css">
@@ -27,17 +27,17 @@
             HOME
             <div class="linkAnimationA"></div>
         </a>
-        <a href="#search-page">
-            <div class="linkAnimationB"></div>
-            SEARCH
-            <div class="linkAnimationA"></div>
-        </a>
         <a href="#about-page">
             <div class="linkAnimationB"></div>
             ABOUT
             <div class="linkAnimationA"></div>
         </a>
-        <a>
+        <a href="#search-page">
+            <div class="linkAnimationB"></div>
+            SEARCH
+            <div class="linkAnimationA"></div>
+        </a>
+        <a href="#project-page">
             <div class="linkAnimationB"></div>
             PROJECTS
             <div class="linkAnimationA"></div>
@@ -86,12 +86,12 @@
                 </div>
                 <div class=scrollTag>
                     <p>SCROLL</p>
-                    <a href="#project-page1"><i class="fas fa-chevron-down"></i></a>
+                    <a href="#project-page"><i class="fas fa-chevron-down"></i></a>
                 </div>
             </div>
             <div class="resume">
                 <div class="skills">
-                    <h2>Skills</h2>
+                    <h2><i class="fas fa-angle-right"></i> Skills</h2>
                     <div class="skill-col" id="skill-programming">
                         <p>Programming:</p>
                     </div>
@@ -103,56 +103,54 @@
                     </div>
                 </div>
                 <div class="experience">
-                    <h2>Experience</h2>
-                    <div class="experience-nav-bar">
-                        <ul>
-                            <li class="active">Siemens PLM Software</li>
-                            <li>University of Cincinnati</li>
-                        </ul>
-                    </div>
+                    <h2><i class="fas fa-angle-right"></i> Experience</h2>
+                    <div class="experience-nav-bar"></div>
                     <p class="position">Software Development Co-op</p>
                     <p class="dates">Jan 2018 - Present</p>
-                    <ul>
-                        <li>Utilize TensorFlow to forge a CNN model to classify data with over 90% accuracy</li>
-                        <li>Automate machine learning training by extending use of various C++ APIs</li>
-                        <li>Query textual data from Elasticsearch utilizing JavaScript APIs</li>
-                        <li>Embed AWS Lambda JavaScript calls in an Angular web framework</li>
-                        <li>Responsible for utilizing Python to parse CSVs to index data into Elasticsearch</li>
-                        <li>Create a Python Flask REST API to handle up to 500 requests in a Docker container</li>
-                    </ul>
+                    <div class="description">
+                    </div>
+                </div>
+
+                <div class="career-goal">
+                    <h2><i class="fas fa-angle-right"></i> Career Goal</h2>
+                    <p> After graduating from the University of Cincinnati, I desire to get involved in the field of Software Engineering or Web Development.</p>
                 </div>
 
             </div>
         </div>
     </div>
-    <div class="page" id="project-page1">
-        <div class="content">
-            <img src="./images/word-search-mania.png">
+    <div class="page" id="project-page">
+        <div class="content-left">
+            <img src="./images/word-search-mania-crop.png">
             <div class="description">
                 <h3>Word Search Mania</h3>
-                <p class="tools-used">Python | PyQT</p>
+                <div class="tools-used">
+                    <p>Python</p>
+                    <p>PyQT</p>
+                </div>
                 <p>Word Search Mania is a full-featured customizable Python 3 word search game created using the PyQt5 framework. With Word Search Mania, words are randomly pulled out of a dictionary text file which contains around 370K words. A custom word bank can also be created in the customization menu.</p>
-                <div class"external-links"><i class="fab fa-github"></i></div>
+                <div class="external-links"><i class="fab fa-github"></i></div>
             </div>
         </div>
+
+        <div class="content-right">
+            <img src="./images/tribunal-crop.png">
+            <div class="description">
+                <h3>Engineering Tribunal Website</h3>
+                <div class="tools-used">
+                    <p>JavaScript</p>
+                    <p>CSS/Sass</p>
+                    <p>Gulp</p>
+                    <p>Drupal 8</p>
+                </div>
+                <p>A website created for the Engineering Tribunal at the University of Cincinnati developed with Drupal 8 while using HTML/Sass and vanilla JavaScript to theme. It uses a Gulp file to generate CSS from Sass and cross-browser compatible code.</p>
+                <div class="external-links"><i class="fas fa-external-link-alt"></i></div>
+            </div>
+        </div>
+        
         <div class=scrollTag>
             <p>SCROLL</p>
             <a href="#project-page2"><i class="fas fa-chevron-down"></i></a>
-        </div>
-    </div>
-    <div class="page" id="project-page2">
-        <div class="content">
-            <img src="./images/tribunal-website.jpg">
-            <div class="description">
-                <h3>Engineering Tribunal Website</h3>
-                <p class="tools-used">Python | PyQT</p>
-                <p>A website created for the Engineering Tribunal at the University of Cincinnati developed with Drupal 8 while using HTML/Sass and vanilla JavaScript to theme. It uses a Gulp file to generate CSS from Sass and cross-browser compatible code.</p>
-                <i class="fas fa-external-link-alt"></i>
-            </div>
-        </div>
-        <div class=scrollTag>
-            <p>SCROLL</p>
-            <a href="#"><i class="fas fa-chevron-down"></i></a>
         </div>
     </div>
 

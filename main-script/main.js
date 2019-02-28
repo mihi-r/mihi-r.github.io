@@ -1,15 +1,22 @@
-window.onscroll = function() {
-    document.querySelector(".intro").style.opacity = 1 - window.scrollY / 250;
+var isElementInView = function(docElement) {
+    let topBoundingClient = docElement.getBoundingClientRect().top;
+    return topBoundingClient < 80 ? true : false;
 }
 
+const navAnimationB = document.querySelectorAll("nav a .linkAnimationB");
+const navAnimationA = document.querySelectorAll("nav a .linkAnimationA");
+const menubar = document.querySelector(".menubar");
 const fixedNav = document.querySelector("nav");
 fixedNav.classList.add("light");
 
+const projectDescriptions = document.querySelectorAll("#project-page .description");
+
 window.addEventListener("scroll", function(ev) {
-    const navAnimationB = document.querySelectorAll("nav a .linkAnimationB");
-    const navAnimationA = document.querySelectorAll("nav a .linkAnimationA");
-    const menubar = document.querySelector(".menubar");
-    const distanceToTop = menubar.getBoundingClientRect().top;
+    // To fade the intro text
+    document.querySelector(".intro").style.opacity = 1 - window.scrollY / 250;
+
+    // Animate the nav bar
+    let distanceToTop = menubar.getBoundingClientRect().top;
 
     if (distanceToTop < 5) {
         menubar.style.boxShadow = "0 4px 8px 0 rgba(0, 0, 0, 0.2)";
@@ -33,6 +40,16 @@ window.addEventListener("scroll", function(ev) {
             navAnimationA[i].style.background = "white";
         }
     }
+
+    for (let i = 0; i < projectDescriptions.length; i++) {
+        if (projectDescriptions[i].style.transform != "translateX(0%)")
+        {
+            if (isElementInView(projectDescriptions[i])) {
+                projectDescriptions[i].style.transform = "translateX(0%)";
+            }
+        }
+    }
+
  });
 
  
@@ -73,17 +90,26 @@ for (let i = 0; i < allNavLink.length; i++){
     })(i);
 }
 
-// Resume page
+// Resume page general
+const addListItem = function(ulContainer, item, classToAdd="") {
+    let liItem = document.createElement("li");
+    liItem.textContent = item;
+
+    if (classToAdd !== "") {
+        liItem.setAttribute("class", classToAdd);
+    }
+
+    ulContainer.appendChild(liItem);
+    return ulContainer;
+}
 
 // Skills
-const addSkillsSection = function(skillsContainer, skills){
-    const skillsUl = document.createElement("ul");
-    for (let i = 0; i < skills.length; i++) {
-        let skillItem = document.createElement("li");
-        skillItem.textContent = skills[i];
-        skillsUl.appendChild(skillItem);
+const addUnorderedListFromArray = function(container, arrayToUse){
+    let unorderedList = document.createElement("ul");
+    for (let i = 0; i < arrayToUse.length; i++) {
+        unorderedList = addListItem(unorderedList, arrayToUse[i])
     }
-    skillsContainer.appendChild(skillsUl);
+    container.appendChild(unorderedList);
 }
 
 const programmingSkillsContainer = document.querySelector("#search-page .skills #skill-programming");
@@ -93,6 +119,33 @@ const toolsSkills = resumeData[0]["skills"]["tools"];
 const frameworksSkillsContainer = document.querySelector("#search-page .skills #skill-frameworks");
 const frameworksSkills = resumeData[0]["skills"]["frameworks"];
 
-addSkillsSection(programmingSkillsContainer, programmingSkills);
-addSkillsSection(toolsSkillsContainer, toolsSkills);
-addSkillsSection(frameworksSkillsContainer, frameworksSkills);
+addUnorderedListFromArray(programmingSkillsContainer, programmingSkills);
+addUnorderedListFromArray(toolsSkillsContainer, toolsSkills);
+addUnorderedListFromArray(frameworksSkillsContainer, frameworksSkills);
+
+// Experiences
+const generateCompanyData = function(experienceDescContainer, experiences, company) {
+    experienceDesc = experiences[company]["description"];
+    addUnorderedListFromArray(experienceDescContainer, experienceDesc);
+}
+
+const addCompanyNames = function(experienceDescContainer, experienceNavBar, experiences) {
+    let companyCount = 0;
+    let companyList = document.createElement("ul");
+    for (const company in experiences) {
+        if (companyCount === 0) {
+            companyList = addListItem(companyList, company, "active");
+            generateCompanyData(experienceDescContainer, experiences, company);
+        } else {
+            companyList = addListItem(companyList, company);
+        }
+        companyCount++;
+    }
+    experienceNavBar.appendChild(companyList);
+}
+
+const experienceDescContainer = document.querySelector("#search-page .experience .description");
+const experienceNavBar = document.querySelector("#search-page .experience .experience-nav-bar")
+const experiences = resumeData[0]["experiences"];
+
+addCompanyNames(experienceDescContainer, experienceNavBar, experiences);
