@@ -49,8 +49,9 @@ resumeData = [{
     },
     "experiences": {
         "Siemens PLM Software": {
-            "title": "Stragetic Co-op",
+            "title": "Software Development Co-op",
             "location": "Milford, Ohio",
+            "dates": "Jan 2018 - Present",
             "description": [
                 "Utilize TensorFlow to forge a CNN model to classify textual data",
                 "Develop a web support page extending Elasticsearch to query data",
@@ -62,8 +63,9 @@ resumeData = [{
             "non-technical skill": "Presenting my ideas at meetings and in front of customers was a non-technical skill I acquired."
         },
         "University of Cincinnati": {
-            "title": "FYE Peer Leader",
+            "title": "First Year Experience Peer Leader",
             "location": "Cincinnati, Ohio",
+            "dates": "Aug 2017 - Dec 2017",
             "description": [
                 "Educated 20 students in topics across differing educational genres",
                 "Created weekly lesson plans to accommodate university standards",

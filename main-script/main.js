@@ -127,21 +127,46 @@ addUnorderedListFromArray(frameworksSkillsContainer, frameworksSkills);
 const generateCompanyData = function(experienceDescContainer, experiences, company) {
     experienceDesc = experiences[company]["description"];
     addUnorderedListFromArray(experienceDescContainer, experienceDesc);
+
+    const positionTitle = document.querySelector("#search-page .experience .position");
+    positionTitle.textContent = experiences[company]["title"];
+
+    const datesWorked = document.querySelector("#search-page .experience .dates");
+    datesWorked.textContent = experiences[company]["dates"];
 }
 
-const addCompanyNames = function(experienceDescContainer, experienceNavBar, experiences) {
-    let companyCount = 0;
-    let companyList = document.createElement("ul");
-    for (const company in experiences) {
-        if (companyCount === 0) {
-            companyList = addListItem(companyList, company, "active");
-            generateCompanyData(experienceDescContainer, experiences, company);
-        } else {
-            companyList = addListItem(companyList, company);
+var addCompanyNames = function(experienceDescContainer, experienceNavBar, experiences) {
+    const companyPromise = new Promise(function(resolve, reject) {
+        let companyCount = 0;
+        let companyList = document.createElement("ul");
+        for (const company in experiences) {
+            if (companyCount === 0) {
+                companyList = addListItem(companyList, company, "active");
+                generateCompanyData(experienceDescContainer, experiences, company);
+            } else {
+                companyList = addListItem(companyList, company);
+            }
+            companyCount++;
         }
-        companyCount++;
-    }
-    experienceNavBar.appendChild(companyList);
+        experienceNavBar.appendChild(companyList);
+        resolve("Success");
+    });
+
+    companyPromise.then(function(result) {
+        const companies = experienceNavBar.children[0].children;
+
+        for (let i = 0; i < companies.length; i++){ 
+            (function(i) {
+                companies[i].onclick = function() {
+                    experienceDescContainer.innerHTML = "";
+                    generateCompanyData(experienceDescContainer, experiences, companies[i].textContent);
+                    let currentActiveCompany = document.querySelector("#search-page .experience .experience-nav-bar .active");
+                    currentActiveCompany.classList.remove("active");
+                    companies[i].classList.add("active");
+                }
+            })(i);
+        }
+    });
 }
 
 const experienceDescContainer = document.querySelector("#search-page .experience .description");
