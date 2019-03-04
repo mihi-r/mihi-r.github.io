@@ -133,6 +133,21 @@ const generateCompanyData = function(experienceDescContainer, experiences, compa
 
     const datesWorked = document.querySelector("#search-page .experience .dates");
     datesWorked.textContent = experiences[company]["dates"];
+
+    const technicalSkill = document.querySelector("#search-page .experience .technical-skill");
+    const nontechnicalSkill = document.querySelector("#search-page .experience .nontechnical-skill");
+
+    if ("technical skill" in experiences[company]) {
+        technicalSkill.textContent = experiences[company]["technical skill"];
+    } else {
+        technicalSkill.textContent = "";
+    }
+
+    if ("nontechnical skill" in experiences[company]) {
+        nontechnicalSkill.textContent = experiences[company]["nontechnical skill"];
+    } else {
+        nontechnicalSkill.textContent = "";
+    }
 }
 
 var addCompanyNames = function(experienceDescContainer, experienceNavBar, experiences) {

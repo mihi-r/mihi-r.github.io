@@ -1,22 +1,23 @@
 @import 'https://fonts.googleapis.com/css?family=Quicksand';
 $font-family: 'Quicksand', sans-serif;
 $primary-color: #dea6af;
+$num-pages: 6;
 
 html {
-    height:100%;
+    height: 100%;
     margin:0px;
     padding:0px;
     scroll-behavior: smooth;
 }
 
 body {
-    height: 500%; // Pages * 100
+    height: (100% * $num-pages); // Pages * 100
     margin:0px;
     padding:0px;
 }
 
 .page {
-    min-height: 20%; // 100 / Pages
+    min-height: (100% / $num-pages); // 100 / Pages
     margin: 0;
     padding: 0;
     position: relative;
@@ -146,6 +147,7 @@ nav .logo img {
     z-index: 1;
 }
 
+// Experience Page
 #search-page {
     min-height: 33.33%;
     height: auto;
@@ -282,11 +284,11 @@ nav .logo img {
 
 #search-page .resume .experience p {
     line-height: 10px;
-    font-size: 20px;
 }
 
 #search-page .resume .experience .position {
     color: #d8b7bc;
+    font-size: 20px;
 }
 
 #search-page .resume .experience .dates {
@@ -294,12 +296,29 @@ nav .logo img {
     font-size: 14px;
 }
 
-
-
-#about-page {
-
+#search-page .resume .links {
+    padding: 40px;
+    text-align: center;
 }
 
+#search-page .resume .links a {
+    text-align: center;
+    padding: 10px 40px;
+    background: #36363c;
+    color: #dea6af;
+    border: 2px solid #dea6af;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+#search-page .resume .links a:hover {
+    background: #4c4c52;
+    color: #dea6af;
+}
+
+// About Page
 #about-page .content {
     max-width: 960px;
     margin: 0 auto;
@@ -325,18 +344,15 @@ nav .logo img {
     float: left;
 }
 
-#about-page .scrollTag {
-    position: static;
-}
 
-// Project 1: Word Search Mania
+// Project Page
 #project-page {
     background: linear-gradient(to top, unquote('#d8b7bc2a'), unquote('#3b8c992c'));
     overflow-x: hidden;
 }
 
-#project-page .scrollTag {
-    position: static;
+#project-page .content-right {
+    padding-bottom: 80px;
 }
 
 #project-page .description {
@@ -381,6 +397,19 @@ nav .logo img {
     font-size: 20px;
 }
 
+// Involvement Page
+#involvement-page .content {
+    max-width: 960px;
+    margin: 0 auto;
+    padding-top: 180px;
+    font-family: $font-family;
+}
+
+#involvement-page .content i {
+    color: #dea6af;
+}
+
+
 // Scroll Tags
 .homepage .scrollTag,
 .homepage .fas,
@@ -407,7 +436,6 @@ nav .logo img {
 
 .scrollTag {
     position: absolute;
-    display: inline-block;
     width: 100%;
     text-align: center;
     bottom: 30px;
