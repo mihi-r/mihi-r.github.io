@@ -136,6 +136,16 @@ const addListItem = function(ulContainer, item, classToAdd="") {
     return ulContainer;
 }
 
+// Education
+const education = resumeData[0]["education"]["university"];
+const educationUni = document.querySelector("#search-page .education .university");
+const educationMajor = document.querySelector("#search-page .education .major");
+const educationDate = document.querySelector("#search-page .education .date");
+
+educationUni.textContent = education["name"];
+educationMajor.textContent = education["major"];
+educationDate.textContent = education["graduation year"];
+
 // Skills
 const addUnorderedListFromArray = function(container, arrayToUse){
     let unorderedList = document.createElement("ul");
