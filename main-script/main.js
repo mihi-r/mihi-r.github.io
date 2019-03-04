@@ -6,6 +6,7 @@ var isElementInView = function(docElement) {
 const navAnimationB = document.querySelectorAll("nav a .linkAnimationB");
 const navAnimationA = document.querySelectorAll("nav a .linkAnimationA");
 const menubar = document.querySelector(".menubar");
+const allPages = document.querySelectorAll(".page");
 const fixedNav = document.querySelector("nav");
 fixedNav.classList.add("light");
 
@@ -49,6 +50,21 @@ window.addEventListener("scroll", function(ev) {
             }
         }
     }
+
+    // Highlight nav link if page is in view
+    let minPageValue = Math.abs(allPages[0].getBoundingClientRect().top);
+    let minPage = allPages[0];
+
+    for (let i = 1; i < allPages.length; i++) {
+        let tempPageValue = Math.abs(allPages[i].getBoundingClientRect().top);
+        if (tempPageValue < minPageValue ) {
+            minPageValue = tempPageValue;
+            minPage = allPages[i];
+        }
+    }
+    
+    console.log(minPage.getAttribute("id"));
+
 
  });
 
