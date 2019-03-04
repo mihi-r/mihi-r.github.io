@@ -289,18 +289,16 @@ nav .logo img {
     padding-left: 18px;
 }
 
-#search-page .resume .experience p {
-    line-height: 10px;
-}
-
 #search-page .resume .experience .position {
     color: #d8b7bc;
     font-size: 20px;
+    line-height: 10px;
 }
 
 #search-page .resume .experience .dates {
     color: rgb(216, 204, 200);
     font-size: 14px;
+    line-height: 10px;
 }
 
 #search-page .resume .links {
@@ -365,7 +363,7 @@ nav .logo img {
 }
 
 #project-page .description {
-    padding-top: 200px;
+    padding-top: 180px;
     font-family: $font-family;
     padding-right: 150px;
     width: 30%;
@@ -393,6 +391,15 @@ nav .logo img {
     filter: drop-shadow(10px 0px 0px unquote('#3b8c99ab'));
 }
 
+#project-page a {
+    color: #3b8c99ab;
+    transition: 0.3s;
+}
+
+#project-page a:hover {
+    color: #6fb4beab;
+}
+
 #project-page .tools-used p {
     display: inline;
     background: #3b8c99ab;
@@ -403,14 +410,14 @@ nav .logo img {
 }
 
 #project-page .external-links {
-    font-size: 20px;
+    font-size: 25px;
 }
 
 // Involvement Page
 #involvement-page .content {
     max-width: 960px;
     margin: 0 auto;
-    padding-top: 180px;
+    padding-top: 150px;
     font-family: $font-family;
     padding-bottom: 80px;
 }
@@ -422,14 +429,14 @@ nav .logo img {
 
 // Scroll Tags
 .homepage .scrollTag,
-.homepage .fas,
-.search-page .fas {
+.homepage .fa-chevron-down,
+.search-page .fa-chevron-down {
     color: white;
 }
 
-#about-page .fas,
-#project-page .fas,
-#involvement-page .fas {
+#about-page .fa-chevron-down,
+#project-page .fa-chevron-down,
+#involvement-page .fa-chevron-up {
     color: black;
 }
 
