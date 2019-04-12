@@ -1,3 +1,4 @@
+// Nav menu and general
 var isElementInView = function(docElement) {
     let topBoundingClient = docElement.getBoundingClientRect().top;
     return topBoundingClient < 80 ? true : false;
@@ -21,8 +22,8 @@ var activatePageLink = function(pageId) {
     }
 }
 
-const navAnimationB = document.querySelectorAll("nav a .linkAnimationB");
-const navAnimationA = document.querySelectorAll("nav a .linkAnimationA");
+const navAnimationB = document.querySelectorAll("nav .nav-link .linkAnimationB");
+const navAnimationA = document.querySelectorAll("nav .nav-link .linkAnimationA");
 const menubar = document.querySelector(".menubar");
 const allPages = document.querySelectorAll(".page");
 const fixedNav = document.querySelector("nav");
@@ -99,10 +100,9 @@ for (let i = 0; i < allScrollTagP.length; i++) {
             allScrollTagP[index].style.opacity = "0";
         }
     })(i);
-
 }
 
-const allNavLink = document.querySelectorAll("nav a");
+const allNavLink = document.querySelectorAll("nav .nav-link");
 const allNavAnimationB = document.querySelectorAll(".linkAnimationB")
 const allNavAnimationA = document.querySelectorAll(".linkAnimationA")
 
@@ -121,6 +121,27 @@ for (let i = 0; i < allNavLink.length; i++){
             }
         }
     })(i);
+}
+
+const hamburgerMenu = document.querySelector("nav .hamburger-menu");
+const navLinkBackground = document.querySelector(".nav-link-background");
+
+hamburgerMenu.onclick = function() {
+    navLinkBackground.style.width = "100%";
+
+    for (let i = 0; i < allNavLink.length; i++){ 
+        (function(i) {
+            allNavLink[i].classList.add("nav-link-mobile-block");
+        })(i);
+    }
+
+    setTimeout(function() {
+        for (let i = 0; i < allNavLink.length; i++){ 
+            (function(i) {
+                allNavLink[i].classList.add("nav-link-mobile-opacity");
+            })(i);
+        }
+    }, 300);
 }
 
 // Resume page general

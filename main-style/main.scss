@@ -11,7 +11,6 @@ html {
 }
 
 body {
-    //height: (100% * $num-pages); // Pages * 100
     margin:0px;
     padding:0px;
 }
@@ -24,7 +23,7 @@ body {
 }
 
 // Navigation bar
-// Inspiration from https://codepen.io/EvyatarDa/pen/waKXMd
+// Nav link Inspiration from https://codepen.io/EvyatarDa/pen/waKXMd
 
 nav {
     width: 95%;
@@ -38,18 +37,23 @@ nav {
 
 nav a {
     text-decoration: none;
+    color: inherit;
+}
+
+nav .nav-link {
     font-size: 20px;
-    margin: 0px 0px;
-    padding: 10px 10px;
+    margin: 0px 2px;
+    padding: 10px 12px 10px 18px;
     top: 5px;
     position: relative;
     z-index: 0;
     cursor: pointer;
+    opacity: 1;
     color: inherit;
+    transition: opacity 0.3s;
 }
 
-
-nav a .linkAnimationB, nav a .linkAnimationA
+nav .nav-link .linkAnimationB, nav .nav-link .linkAnimationA
 {
     position: absolute;
     opacity: 0;
@@ -60,25 +64,25 @@ nav a .linkAnimationB, nav a .linkAnimationA
     background: #ffffff;
 }
 
-nav a .linkAnimationB
+nav .nav-link .linkAnimationB
 {
     left: 0px;
     top: 0px;
 }
 
-nav a .linkAnimationA
+nav .nav-link .linkAnimationA
 {
     right: 0px;
     bottom: 0px;
 }
 
-nav a:hover:before, nav a:hover:after
+nav .nav-link:hover:before, nav .nav-link:hover:after
 {
     opacity: 1;
     width: 100%;
 }
 
-nav a .active {
+nav .nav-link .active {
     opacity: 1;
     width: 100%;
 }
@@ -87,6 +91,71 @@ nav .logo h1 {
     float: left;
     margin: 0;
     font-size: 30px;
+}
+
+nav .hamburger-menu {
+    position: fixed;
+    right: 40px;
+    top: 37px;
+    visibility: hidden;
+}
+
+@media screen and (max-width: 1040px) {
+    nav {
+        width: auto;
+        text-align: left;
+    }
+
+    nav a.nav-link-mobile-block {
+        display: block;
+    }
+
+    nav a.nav-link-mobile-opacity {
+        opacity: 1;
+    }
+    
+    nav .nav-link {
+        opacity: 0;
+        display: none;
+        color: white;
+        margin-bottom: 4px;
+    }
+
+    .dark {
+        background: white;
+    }
+
+    .nav-link-container {
+        padding-top: 70px;
+    }
+
+    nav .hamburger-menu {
+        visibility: visible;
+    }
+
+    .nav-link-background {
+        background: black;
+        height: 100vh;
+        position: fixed;
+        width: 0;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        transition: 0.5s;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    nav .logo img {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    nav .logo h1 {
+        font-size: 20px;
+        padding-top: 6px;
+    }    
 }
 
 .light {
@@ -157,6 +226,11 @@ nav .logo img {
     background: #36363c;
 }
 
+#search-page .content {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
 .search-page form {
     text-align: center;
 }
@@ -218,8 +292,6 @@ nav .logo img {
 }
 
 #search-page .resume {
-    width: 960px;
-    margin: 0 auto;
     color: white;
     font-family: $font-family;
     padding-bottom: 80px;
