@@ -180,6 +180,7 @@ nav .logo img {
     }    
 }
 
+// Homepage
 .homepage {
     z-index: 1;
     top: 0;
@@ -192,6 +193,7 @@ nav .logo img {
 
 .homepage .intro {
     opacity: 1;
+    padding: 0 20px;
 }
 
 .homepage .intro h2 {
@@ -213,6 +215,17 @@ nav .logo img {
     color: white;
 }
 
+@media screen and (max-width: 520px) {
+    .homepage .intro h2 {
+        font-size: 5em;
+    }
+
+    .homepage .intro p {
+        font-size: 1em;
+    }
+}
+
+// Menubar
 .menubar {
     margin-top: 0px;
     padding: 50px;
@@ -410,8 +423,7 @@ nav .logo img {
     max-width: 960px;
     margin: 0 auto;
     font-family: $font-family;
-    padding-top: 150px;
-    padding-bottom: 80px;
+    padding: 150px 20px 80px 20px;
     overflow: hidden;
 }
 
@@ -433,6 +445,20 @@ nav .logo img {
     padding-right: 40px;
 }
 
+@media screen and (max-width: 660px) {
+    #about-page .content {
+        padding: 80px 20px 80px 20px;
+    }
+
+    #about-page .content img {
+        width: 40%;
+    }
+
+    #about-page .content .description {
+        width: auto;
+        padding-right: 0;
+    }
+}
 
 // Project Page
 #project-page {
