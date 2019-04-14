@@ -48,16 +48,22 @@ window.addEventListener("scroll", function(ev) {
     if (distanceToTop < 5) {
         fixedNav.classList.remove("light");
         for (let i = 0; i < navAnimationB.length; i++) {
-            navAnimationB[i].style.background = "black";
-            navAnimationA[i].style.background = "black";
+            navAnimationB[i].classList.remove("nav-link-light");
+            navAnimationB[i].classList.add("nav-link-dark");
+            navAnimationA[i].classList.remove("nav-link-light");
+            navAnimationA[i].classList.add("nav-link-dark");
         }
     }
     else {
         fixedNav.classList.add("light");
         document.querySelector(".light").style.transition = "color 1s";
         for (let i = 0; i < navAnimationB.length; i++) {
-            navAnimationB[i].style.background = "white";
-            navAnimationA[i].style.background = "white";
+            //navAnimationB[i].style.background = "white";
+            //navAnimationA[i].style.background = "white";
+            navAnimationB[i].classList.remove("nav-link-dark");
+            navAnimationB[i].classList.add("nav-link-light");
+            navAnimationA[i].classList.remove("nav-link-dark");
+            navAnimationA[i].classList.add("nav-link-light");
         }
     }
 
@@ -123,25 +129,49 @@ for (let i = 0; i < allNavLink.length; i++){
     })(i);
 }
 
-const hamburgerMenu = document.querySelector("nav .hamburger-menu");
+const hamburgerMenu = document.querySelector("nav .hamburger-menu i");
 const navLinkBackground = document.querySelector(".nav-link-background");
 
 hamburgerMenu.onclick = function() {
-    navLinkBackground.style.width = "100%";
+    if (hamburgerMenu.classList.contains("fa-bars")) {
+        navLinkBackground.style.width = "100%";
 
-    for (let i = 0; i < allNavLink.length; i++){ 
-        (function(i) {
-            allNavLink[i].classList.add("nav-link-mobile-block");
-        })(i);
-    }
-
-    setTimeout(function() {
         for (let i = 0; i < allNavLink.length; i++){ 
             (function(i) {
-                allNavLink[i].classList.add("nav-link-mobile-opacity");
+                allNavLink[i].classList.add("nav-link-mobile-block");
             })(i);
         }
-    }, 300);
+    
+        setTimeout(function() {
+            for (let i = 0; i < allNavLink.length; i++){ 
+                (function(i) {
+                    allNavLink[i].classList.add("nav-link-mobile-opacity");
+                })(i);
+            }
+        }, 300);
+
+        hamburgerMenu.classList.remove("fa-bars");
+        hamburgerMenu.classList.add("fa-times");
+    } else {
+        navLinkBackground.style.width = "0";
+
+        for (let i = 0; i < allNavLink.length; i++){ 
+            (function(i) {
+                allNavLink[i].classList.remove("nav-link-mobile-block");
+            })(i);
+        }
+    
+        setTimeout(function() {
+            for (let i = 0; i < allNavLink.length; i++){ 
+                (function(i) {
+                    allNavLink[i].classList.remove("nav-link-mobile-opacity");
+                })(i);
+            }
+        }, 300);
+
+        hamburgerMenu.classList.remove("fa-times");
+        hamburgerMenu.classList.add("fa-bars");
+    }
 }
 
 // Resume page general

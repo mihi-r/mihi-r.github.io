@@ -61,7 +61,6 @@ nav .nav-link .linkAnimationB, nav .nav-link .linkAnimationA
     height: 2px;
     content: '';
     transition: all 0.3s;
-    background: #ffffff;
 }
 
 nav .nav-link .linkAnimationB
@@ -100,6 +99,28 @@ nav .hamburger-menu {
     visibility: hidden;
 }
 
+.light {
+    color: white;
+}
+
+.nav-link-dark {
+    background: black;
+}
+
+.nav-link-light {
+    background: white;
+}
+
+nav .logo img {
+    float: left;
+    margin: 0;
+    margin-top: -8px; 
+    margin-right: 20px;
+    padding: 10px;
+    width: 50px;
+    background-color: white;
+}
+
 @media screen and (max-width: 1040px) {
     nav {
         width: auto;
@@ -121,7 +142,7 @@ nav .hamburger-menu {
         margin-bottom: 4px;
     }
 
-    .dark {
+    .nav-link-dark {
         background: white;
     }
 
@@ -131,6 +152,7 @@ nav .hamburger-menu {
 
     nav .hamburger-menu {
         visibility: visible;
+        cursor: pointer;
     }
 
     .nav-link-background {
@@ -156,24 +178,6 @@ nav .hamburger-menu {
         font-size: 20px;
         padding-top: 6px;
     }    
-}
-
-.light {
-    color: white;
-}
-
-.dark {
-    background: black;
-}
-
-nav .logo img {
-    float: left;
-    margin: 0;
-    margin-top: -8px; 
-    margin-right: 20px;
-    padding: 10px;
-    width: 50px;
-    background-color: white;
 }
 
 .homepage {
@@ -508,7 +512,7 @@ nav .logo img {
 // Scroll Tags
 .homepage .scrollTag,
 .homepage .fa-chevron-down,
-.search-page .fa-chevron-down {
+#search-page .fa-chevron-down {
     color: white;
 }
 
@@ -526,7 +530,7 @@ nav .logo img {
 }
 
 .homepage .scrollTag p,
-.search-page .scrollTag p {
+#search-page .scrollTag p {
     color: white;
 }
 
