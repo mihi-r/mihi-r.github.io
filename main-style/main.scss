@@ -523,6 +523,11 @@ nav .logo img {
     filter: drop-shadow(10px 0px 0px unquote('#3b8c99ab'));
 }
 
+#project-page .date {
+    padding-top: 10px;
+    color: #3b8c99ab;
+}
+
 #project-page a {
     color: #3b8c99ab;
     transition: 0.3s;
@@ -571,6 +576,14 @@ nav .logo img {
 }
 
 #involvement-page .content i {
+    color: #dea6af;
+}
+
+#involvement-page .content h2 {
+    margin-bottom: 2px;
+}
+
+#involvement-page .content .date {
     color: #dea6af;
 }
 
