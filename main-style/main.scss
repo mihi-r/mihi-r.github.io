@@ -557,8 +557,8 @@ nav .logo img {
     }
 
     #project-page img {
-        min-width: auto;
-        width: auto;
+        min-width: 0;
+        width: 100%;
     }
 
     #project-page .description {
