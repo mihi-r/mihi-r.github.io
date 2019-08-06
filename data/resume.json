@@ -1,0 +1,82 @@
+[{
+    "Name": "Mihir Patel",
+    "Contact": {
+        "Phone": "513-720-9908",
+        "Email": "patel3mh@mail.uc.edu"
+    },
+    "Social Media": {
+        "GitHub": "github.com/mihi-r",
+        "LinkedIn": "linkedin.com/in/mihi-r/"
+    },
+    "Education": {
+        "University" : {
+            "Name": "University of Cincinnati",
+            "Location": "Cincinnati, Ohio",
+            "Graduation Year": "Class of 2021",
+            "Major": "Bachelor of Science in Computer Science",
+            "GPA": "3.7/4.0"
+        },
+        "High School": {
+            "Name": "Fairfield High School",
+            "Location": "Fairfield, Ohio",
+            "Graduation Year": "2016"
+        }
+    },
+    "Skills": {
+        "Programming": [
+            "C++",
+            "JavaScript",
+            "TypeScript",
+            "Python",
+            "NodeJS",
+            "HTML/CSS/Sass",
+            "PHP",
+            "SQL",
+            "Java",
+            "MATLAB"
+        ],
+        "Frameworks": [
+            "TensorFlow",
+            "Angular",
+            "Drupal",
+            "Bootstrap",
+            "Flask",
+            "PyQt",
+            "Agile (SCRUM)"
+        ],
+        "Tools" : [
+            "Amazon Web Services",
+            "Docker",
+            "Git",
+            "Elasticsearch",
+            "Gulp",
+            "JQuery",
+            "Adobe Creative Suite"
+        ]
+    },
+    "Experiences": {
+        "Siemens PLM Software": {
+            "Title": "Software Development Co-op",
+            "Location": "Milford, Ohio",
+            "Dates": "Jan 2018 - Present",
+            "Description": [
+                "Improve data classification accuracy from 60% to 90% using TensorFlow to forge a CNN model",
+                "Elevate usability by utilizing various C++ APIs to automate machine learning training",
+                "Implement a microservice using NodeJS to process 1000000+ lines of textual data for training",
+                "Develop AWS Lambda functions to embed JavaScript calls in an Angular web framework",
+                "Responsible for utilizing Python to parse CSVs with up to 10000+ entries to index into Elasticsearch",
+                "Increase REST API scalability in a Docker container by creating a Python Flask REST API to handle up to 500 requests"
+            ]
+        },
+        "University of Cincinnati": {
+            "Title": "First Year Experience Peer Leader",
+            "Location": "Cincinnati, Ohio",
+            "Dates": "Aug 2017 - Dec 2017",
+            "Description": [
+                "Educated 20 students in topics across differing educational genres",
+                "Created weekly lesson plans to accommodate university standards",
+                "Engaged students by providing 2 interactive presentations and activities each week for 15 weeks"
+            ]
+        }
+    }
+}]
