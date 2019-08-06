@@ -1,10 +1,13 @@
+import resumeData from "../data/resume.json";
+import { searchInput } from "./search";
+
 // Nav menu and general
-var isElementInView = function(docElement) {
+const isElementInView = function(docElement) {
     let topBoundingClient = docElement.getBoundingClientRect().top;
     return topBoundingClient < 400 ? true : false;
 }
 
-var activatePageLink = function(pageId) {
+const activatePageLink = function(pageId) {
     const allNavAnimationB = document.querySelector("a[href='#" + pageId + "'] .linkAnimationB");
     const allNavAnimationA = document.querySelector("a[href='#" + pageId + "'] .linkAnimationA");
 
@@ -28,11 +31,12 @@ const navTexts = document.querySelectorAll("nav a");
 const menubar = document.querySelector(".menubar");
 const allPages = document.querySelectorAll(".page");
 const fixedNav = document.querySelector("nav");
+let isMenuTextOnBar = false;
 fixedNav.classList.add("light");
 
 const projectDescriptions = document.querySelectorAll("#project-page .description");
 
-window.addEventListener("scroll", function(ev) {
+window.addEventListener("scroll", (ev) => {
     // To fade the intro text
     document.querySelector(".intro").style.opacity = 1 - window.scrollY / 250;
 
@@ -59,6 +63,8 @@ window.addEventListener("scroll", function(ev) {
             navTexts[i].classList.remove("nav-text-light");
             navTexts[i].classList.add("nav-text-dark");
         }
+
+        isMenuTextOnBar = true;
     }
     else {
         fixedNav.classList.add("light");
@@ -74,6 +80,8 @@ window.addEventListener("scroll", function(ev) {
             navTexts[i].classList.remove("nav-text-dark");
             navTexts[i].classList.add("nav-text-light");
         }
+
+        isMenuTextOnBar = false;
     }
 
     for (let i = 0; i < projectDescriptions.length; i++) {
@@ -99,7 +107,7 @@ window.addEventListener("scroll", function(ev) {
 
     activatePageLink(minPage.getAttribute("id"));
 
- });
+});
 
  
 const allScrollTagP = document.querySelectorAll(".scrollTag p");
@@ -107,11 +115,11 @@ const allScrollTagIcon = document.querySelectorAll(".scrollTag a");
 
 
 for (let i = 0; i < allScrollTagP.length; i++) {
-    (function (index) {
-        allScrollTagIcon[index].onmouseover = function () {
+    ((index) => {
+        allScrollTagIcon[index].onmouseover = () => {
             allScrollTagP[index].style.opacity = "1";
         }
-        allScrollTagIcon[index].onmouseout = function () {
+        allScrollTagIcon[index].onmouseout = () => {
             allScrollTagP[index].style.opacity = "0";
         }
     })(i);
@@ -125,22 +133,22 @@ const hamburgerMenu = document.querySelector("nav .hamburger-menu i");
 const navLinkBackground = document.querySelector(".nav-link-background");
 
 for (let i = 0; i < allNavLink.length; i++){ 
-    (function(i) {
-        allNavLink[i].onmouseover = function () {
+    ((i) => {
+        allNavLink[i].onmouseover = () => {
             if (!allNavAnimationB[i].classList.contains("current-link")) {
                 allNavAnimationB[i].classList.add("active");
                 allNavAnimationA[i].classList.add("active");
             }
         }
 
-        allNavLink[i].onmouseout = function () {
+        allNavLink[i].onmouseout = () => {
             if (!allNavAnimationB[i].classList.contains("current-link")) {
                 allNavAnimationB[i].classList.remove("active");
                 allNavAnimationA[i].classList.remove("active");
             }
         }
 
-        allNavLink[i].onclick = function() {
+        allNavLink[i].onclick = () => {
             if (hamburgerMenu.classList.contains("fa-times")) {
                 hamburgerMenu.click();
             }
@@ -148,7 +156,7 @@ for (let i = 0; i < allNavLink.length; i++){
     })(i);
 }
 
-hamburgerMenu.onclick = function() {
+hamburgerMenu.onclick = () => {
     if (hamburgerMenu.classList.contains("fa-bars")) {
         // Set header text to light
         for (let i = 0; i < navTexts.length; i++) {
@@ -160,14 +168,14 @@ hamburgerMenu.onclick = function() {
         navLinkBackground.style.width = "100%";
 
         for (let i = 0; i < allNavLink.length; i++){ 
-            (function(i) {
+            ((i) => {
                 allNavLink[i].classList.add("nav-link-mobile-block");
             })(i);
         }
     
-        setTimeout(function() {
+        setTimeout(() => {
             for (let i = 0; i < allNavLink.length; i++){ 
-                (function(i) {
+                ((i) => {
                     allNavLink[i].classList.add("nav-link-mobile-opacity");
                 })(i);
             }
@@ -177,23 +185,28 @@ hamburgerMenu.onclick = function() {
         hamburgerMenu.classList.add("fa-times");
     } else {
         // Set header text to dark
-        for (let i = 0; i < navTexts.length; i++) {
-            navTexts[i].classList.remove("nav-text-light");
-            navTexts[i].classList.add("nav-text-dark");
-        }
+        setTimeout(() => {
+            if (!isMenuTextOnBar) {
+                for (let i = 0; i < navTexts.length; i++) {
+                    navTexts[i].classList.remove("nav-text-light");
+                    navTexts[i].classList.add("nav-text-dark");
+                }
+            }
+        }, 500);
+        
 
         // Minimize background for mobile menu
         navLinkBackground.style.width = "0";
-
+        
         for (let i = 0; i < allNavLink.length; i++){ 
-            (function(i) {
+            ((i) => {
                 allNavLink[i].classList.remove("nav-link-mobile-block");
             })(i);
         }
     
-        setTimeout(function() {
+        setTimeout(() => {
             for (let i = 0; i < allNavLink.length; i++){ 
-                (function(i) {
+                ((i) => {
                     allNavLink[i].classList.remove("nav-link-mobile-opacity");
                 })(i);
             }
@@ -218,14 +231,14 @@ const addListItem = function(ulContainer, item, classToAdd="") {
 }
 
 // Education
-const education = resumeData[0]["education"]["university"];
+const education = resumeData[0]["Education"]["University"];
 const educationUni = document.querySelector("#search-page .education .university");
 const educationMajor = document.querySelector("#search-page .education .major");
 const educationDate = document.querySelector("#search-page .education .date");
 
-educationUni.textContent = education["name"];
-educationMajor.textContent = education["major"];
-educationDate.textContent = education["graduation year"];
+educationUni.textContent = education["Name"];
+educationMajor.textContent = education["Major"];
+educationDate.textContent = education["Graduation Year"];
 
 // Skills
 const addUnorderedListFromArray = function(container, arrayToUse){
@@ -237,11 +250,11 @@ const addUnorderedListFromArray = function(container, arrayToUse){
 }
 
 const programmingSkillsContainer = document.querySelector("#search-page .skills #skill-programming");
-const programmingSkills = resumeData[0]["skills"]["programming"];
+const programmingSkills = resumeData[0]["Skills"]["Programming"];
 const toolsSkillsContainer = document.querySelector("#search-page .skills #skill-tools");
-const toolsSkills = resumeData[0]["skills"]["tools"];
+const toolsSkills = resumeData[0]["Skills"]["Tools"];
 const frameworksSkillsContainer = document.querySelector("#search-page .skills #skill-frameworks");
-const frameworksSkills = resumeData[0]["skills"]["frameworks"];
+const frameworksSkills = resumeData[0]["Skills"]["Frameworks"];
 
 addUnorderedListFromArray(programmingSkillsContainer, programmingSkills);
 addUnorderedListFromArray(toolsSkillsContainer, toolsSkills);
@@ -249,33 +262,18 @@ addUnorderedListFromArray(frameworksSkillsContainer, frameworksSkills);
 
 // Experiences
 const generateCompanyData = function(experienceDescContainer, experiences, company) {
-    experienceDesc = experiences[company]["description"];
+    const experienceDesc = experiences[company]["Description"];
     addUnorderedListFromArray(experienceDescContainer, experienceDesc);
 
     const positionTitle = document.querySelector("#search-page .experience .position");
-    positionTitle.textContent = experiences[company]["title"];
+    positionTitle.textContent = experiences[company]["Title"];
 
     const datesWorked = document.querySelector("#search-page .experience .dates");
-    datesWorked.textContent = experiences[company]["dates"];
-
-    const technicalSkill = document.querySelector("#search-page .experience .technical-skill");
-    const nontechnicalSkill = document.querySelector("#search-page .experience .nontechnical-skill");
-
-    if ("technical skill" in experiences[company]) {
-        technicalSkill.textContent = experiences[company]["technical skill"];
-    } else {
-        technicalSkill.textContent = "";
-    }
-
-    if ("nontechnical skill" in experiences[company]) {
-        nontechnicalSkill.textContent = experiences[company]["nontechnical skill"];
-    } else {
-        nontechnicalSkill.textContent = "";
-    }
+    datesWorked.textContent = experiences[company]["Dates"];
 }
 
-var addCompanyNames = function(experienceDescContainer, experienceNavBar, experiences) {
-    const companyPromise = new Promise(function(resolve, reject) {
+const addCompanyNames = function(experienceDescContainer, experienceNavBar, experiences) {
+    const companyPromise = new Promise((resolve, reject) => {
         let companyCount = 0;
         let companyList = document.createElement("ul");
         for (const company in experiences) {
@@ -291,12 +289,12 @@ var addCompanyNames = function(experienceDescContainer, experienceNavBar, experi
         resolve("Success");
     });
 
-    companyPromise.then(function(result) {
+    companyPromise.then((result) => {
         const companies = experienceNavBar.children[0].children;
 
         for (let i = 0; i < companies.length; i++){ 
-            (function(i) {
-                companies[i].onclick = function() {
+            ((i) => {
+                companies[i].onclick = () => {
                     experienceDescContainer.innerHTML = "";
                     generateCompanyData(experienceDescContainer, experiences, companies[i].textContent);
                     let currentActiveCompany = document.querySelector("#search-page .experience .experience-nav-bar .active");
@@ -310,6 +308,20 @@ var addCompanyNames = function(experienceDescContainer, experienceNavBar, experi
 
 const experienceDescContainer = document.querySelector("#search-page .experience .description");
 const experienceNavBar = document.querySelector("#search-page .experience .experience-nav-bar")
-const experiences = resumeData[0]["experiences"];
+const experiences = resumeData[0]["Experiences"];
 
 addCompanyNames(experienceDescContainer, experienceNavBar, experiences);
+
+// Resume form
+const searchForm = document.querySelector(".search-page form");
+const searchBox = document.querySelector(".search-page .searchBox");
+
+searchForm.onsubmit = (event) => {
+    event.preventDefault();
+}
+
+searchBox.onkeyup = (event) => {
+    if (searchBox.value != "") {
+        searchInput(searchBox.value.toLowerCase(), event);
+    }
+}

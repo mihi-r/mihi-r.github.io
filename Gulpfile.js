@@ -1,37 +1,83 @@
-var fs = require('fs'),
-    pkg = require('./package.json'),
-    gulp = require('gulp'),
-    sass = require('gulp-sass'),
-    rename = require('gulp-rename'),
-    concat = require('gulp-concat'),
-    uglify = require('gulp-uglify'),
-    minify = require('gulp-clean-css');
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const autoprefixer = require('gulp-autoprefixer');
+const babel = require('gulp-babel');
+const uglify = require('gulp-uglify');
+const rollup = require('rollup-stream');
+const rename = require('gulp-rename');
+const replace = require('gulp-replace');
+const purge = require('gulp-css-purge');
+const json = require('rollup-plugin-json');
+const source = require('vinyl-source-stream');
+const buffer = require('vinyl-buffer');
 
-function escape (text) {
-  return text.replace(/'/g, "\\'").replace(/"/g, "\\\"");
+function styles() {
+  return gulp
+    .src('./styles/*.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(autoprefixer({
+      cascade: false,
+    }))
+    .pipe(purge({
+      trim: true,
+      shorten: true,
+      verbose: true,
+    }))
+    .pipe(rename('style.min.css'))
+    .pipe(gulp.dest('./build/'));
 }
 
-gulp.task('main-styles', function() {
-  gulp.src('./main-style/main.scss')
-      .pipe(sass().on('error', sass.logError))
-      .pipe(minify())
-      .pipe(rename('main.min.css'))
-      .pipe(gulp.dest('./main-build/'));
-});
+function scripts() {
+  return rollup({
+      input: './scripts/main.js',
+      format: 'cjs',
+      plugins: [
+        json({
+          exclude: 'node_modules/**'
+        })
+      ]
+    })
+    .pipe(source('main.min.js'))
+    .pipe(buffer())
+    .pipe(babel({
+      presets: [
+        ['@babel/preset-env', {
+          useBuiltIns: 'entry',
+          corejs: 3,
+        }],
+      ],
+    }))
+    .pipe(uglify())
+    .pipe(gulp.dest('./build'));
+}
 
-gulp.task('main-scripts', function () {
-  gulp.src(['./main-script/resume.js', './main-script/main.js']) 
-      .pipe(concat('main.min.js'))
-      .pipe(gulp.dest('./main-build/'));
+function devScripts() {
+  return rollup({
+      input: './scripts/main.js',
+      format: 'cjs',
+      plugins: [
+        json({
+          exclude: 'node_modules/**'
+        })
+      ]
+    })
+    .pipe(source('main.min.js'))
+    .pipe(buffer())
+    .pipe(gulp.dest('./build'));
+}
 
-  gulp.src(['./main-script/search-bot.js', './main-script/resume.js'])
-      .pipe(concat('search-bot.min.js'))
-      .pipe(gulp.dest('./main-build/'));
-});
+function watchFiles() {
+  gulp.watch(['./scripts/*.js', './data/*.json'], gulp.series(scripts));
+  gulp.watch('./styles/*.css', gulp.series(styles));
+}
 
-gulp.task('watch',function() {
-  gulp.watch('./main-style/*.scss', ['main-styles']);
-  gulp.watch('./main-script/*.js', ['main-scripts']);
-});
+function watchDevFiles() {
+  gulp.watch(['./scripts/*.js', './data/*.json'], gulp.series(devScripts));
+  gulp.watch('./styles/*.css', gulp.series(styles));
+}
 
-gulp.task('default', ['main-styles', 'main-scripts']);
+const watch = gulp.parallel(scripts, styles, watchFiles);
+const dev = gulp.parallel(devScripts, styles, watchDevFiles);
+
+exports.watch = watch;
+exports.dev = dev;
